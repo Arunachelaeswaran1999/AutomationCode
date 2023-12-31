@@ -8,25 +8,71 @@ namespace Automation___SwagLabs
     [TestCategory("LoginPage Scripts")]
     public class LoginScripts : BaseClass
     {
+        protected LoginPage? loginpage { get; set; }
 
         [TestMethod]
-        [Description("Validating the loginpage using valid username and password")]
-        public void TC1()
+        [Description("To check the Product Page is displayed whether we pass Valid Username and Password")]
+        [TestProperty("Author", "Arunachelaeswaran S")]
+        public void TC_1()
         {
-            SetUsernameAndPassword("standard_usersdsdf","secret_sauce");
-            LoginPage loginpage = new LoginPage(Driver);
+            SetUsernameAndPassword("standard_user", "secret_sauce");
+
+            loginpage = new LoginPage(Driver);
             loginpage.GotoAndAssertPage();
-            loginpage.FillUserCredentials(crendentials);
+            ProductPage productPage = loginpage.FillUserCredentials(crendentials);
+            Assert.IsTrue(productPage.isvisible, "ProductPage is not displayed");
         }
 
         [TestMethod]
-        [Description("Validating the loginpage using Invalid username and password")]
-        public void TC2()
+        [Description("To check the validation message is displayed or not. Without giving the Username")]
+        [TestProperty("Author", "Arunachelaeswaran S")]
+        public void TC_2()
         {
-            SetUsernameAndPassword("standard_usersdsdf","secret_sauce");
-            LoginPage loginpage = new LoginPage(Driver);
+            SetUsernameAndPassword("", "secret_sauce");
+
+            loginpage = new LoginPage(Driver);
             loginpage.GotoAndAssertPage();
             loginpage.FillUserCredentials(crendentials);
+            Assert.AreEqual("Epic sadface: Username is required", loginpage.validateusercredentials);
+        }
+
+        [TestMethod]
+        [Description("To check the validation message is displayed or not. Without giving the Password")]
+        [TestProperty("Author", "Arunachelaeswaran S")]
+        public void TC_3()
+        {
+            SetUsernameAndPassword("standard_user", "");
+
+            loginpage = new LoginPage(Driver);
+            loginpage.GotoAndAssertPage();
+            loginpage.FillUserCredentials(crendentials);
+            Assert.AreEqual("Epic sadface: Password is required", loginpage.validateusercredentials);
+        }
+
+        [TestMethod]
+        [Description("To check the validation message is displayed or not. If we give Invalid Username and Password")]
+        [TestProperty("Author", "Arunachelaeswaran S")]
+        public void TC_4()
+        {
+            SetUsernameAndPassword("Arun", "Test@123");
+
+            loginpage = new LoginPage(Driver);
+            loginpage.GotoAndAssertPage();
+            loginpage.FillUserCredentials(crendentials);
+            Assert.AreEqual("Epic sadface: Username and password do not match any user in this service", loginpage.validateusercredentials);
+        }
+
+        [TestMethod]
+        [Description("To check the validation message is displayed or not. Without giving both Username and Password")]
+        [TestProperty("Author", "Arunachelaeswaran S")]
+        public void TC_5()
+        {
+            SetUsernameAndPassword("", "");
+
+            loginpage = new LoginPage(Driver);
+            loginpage.GotoAndAssertPage();
+            loginpage.FillUserCredentials(crendentials);
+            Assert.AreEqual("Epic sadface: Username is required", loginpage.validateusercredentials);
         }
     }
 
