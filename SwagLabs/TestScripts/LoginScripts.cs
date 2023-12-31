@@ -8,8 +8,6 @@ namespace Automation___SwagLabs
     [TestCategory("LoginPage Scripts")]
     public class LoginScripts : BaseClass
     {
-        protected LoginPage? loginpage { get; set; }
-
         [TestMethod]
         [Description("To check the Product Page is displayed whether we pass Valid Username and Password")]
         [TestProperty("Author", "Arunachelaeswaran S")]
@@ -19,7 +17,7 @@ namespace Automation___SwagLabs
 
             loginpage = new LoginPage(Driver);
             loginpage.GotoAndAssertPage();
-            ProductPage productPage = loginpage.FillUserCredentials(crendentials);
+            productPage = loginpage.FillUserCredentials(crendentials);
             Assert.IsTrue(productPage.isvisible, "ProductPage is not displayed");
         }
 

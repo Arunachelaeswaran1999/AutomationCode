@@ -12,6 +12,8 @@ namespace Base
         protected IWebDriver? Driver { get; set; }
         private WebDriverFactory? factory;
         public UserCrendentials? crendentials { get; set; }
+        protected ProductPage? productPage { get; set; }
+        protected LoginPage? loginpage { get; set; }
 
         [TestInitialize]
         public void ExecuteBeforeAllTestMethods()

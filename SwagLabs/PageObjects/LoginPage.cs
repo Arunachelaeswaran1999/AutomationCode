@@ -61,35 +61,8 @@ namespace PageObjects
             Username?.SendKeys(crendentials?.Username);
             Password?.SendKeys(crendentials?.Password);
             Submit?.Click();
-            // ValidateUserCredentials();
             return new ProductPage(Driver);
         }
-
-        // private void ValidateUserCredentials()
-        // {
-        //     try
-        //     {
-        //         wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(3));
-        //         wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".product_label")));
-        //     }
-        //     catch (System.Exception)
-        //     {
-        //         string? validation_message = Driver?.FindElement(By.CssSelector("h3[data-test='error']")).Text;
-        //         switch (validation_message)
-        //         {
-        //             case "Epic sadface: Username is required":
-        //                 break;
-        //             case "Epic sadface: Password is required":
-        //                 break;
-        //             case "Epic sadface: Username and password do not match any user in this service":
-        //                 break;
-        //             default:
-        //                 throw new ArgumentOutOfRangeException("No Such Validation message is available");
-
-        //         }
-        //     }
-        // }
-
 
     }
 
