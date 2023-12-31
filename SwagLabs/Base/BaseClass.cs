@@ -1,14 +1,17 @@
 using EnumProperties;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using PageObjects;
 using WebDriverManager.DriverConfigs.Impl;
 
 namespace Base
 {
     public class BaseClass
     {
-        public IWebDriver? Driver;
+        protected IWebDriver? Driver { get; set; }
         private WebDriverFactory? factory;
+        public UserCrendentials? crendentials { get; set; }
 
         [TestInitialize]
         public void ExecuteBeforeAllTestMethods()
@@ -22,6 +25,13 @@ namespace Base
         {
             Driver?.Close();
             Driver?.Quit();
+        }
+
+        public void SetUsernameAndPassword(string usename, string password)
+        {
+            crendentials = new UserCrendentials();
+            crendentials.Username = usename;
+            crendentials.Password = password;
         }
 
     }

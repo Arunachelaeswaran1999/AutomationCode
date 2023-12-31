@@ -1,26 +1,66 @@
+using System;
 using Base;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
 namespace PageObjects
 {
-    public class LoginPage
+    public class LoginPage : Base_PageProperties
     {
-        private IWebDriver? Driver;
-
-        public LoginPage(IWebDriver? driver)
-        {
-            Driver = driver;
-        }
+        public LoginPage(IWebDriver? driver) : base(driver) { }
 
         private string Page => "Swag Labs";
-
         public bool? isvisible => Driver?.Title.Contains(Page);
 
-        internal void GotoAndAssertPage()
+        private IWebElement? Username => Driver?.FindElement(By.Id("user-name"));
+        private IWebElement? Password => Driver?.FindElement(By.Id("password"));
+        private IWebElement? Submit => Driver?.FindElement(By.Id("login-button"));
+
+        public void GotoAndAssertPage()
         {
             Driver?.Navigate().GoToUrl("https://www.saucedemo.com/v1/index.html");
             Assert.IsTrue(isvisible, $"LoginPage is not Displayed. ExpectedPage: {Page}. But, ActualPage: {Driver?.Title}");
         }
+
+        public ProductPage FillUserCredentials(UserCrendentials crendentials)
+        {
+            Username?.SendKeys(crendentials.Username);
+            Password?.SendKeys(crendentials.Password);
+            Submit?.Click();
+            ValidateUserCredentials();
+            return new ProductPage(Driver);
+        }
+
+        private void ValidateUserCredentials()
+        {
+            try
+            {
+                wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(3));
+                wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(".product_label")));
+            }
+            catch (System.Exception)
+            {
+                string? validation_message = Driver?.FindElement(By.CssSelector("h3[data-test='error']")).Text;
+                switch (validation_message)
+                {
+                    case "Epic sadface: Username is required":
+                        break;
+                    case "Epic sadface: Password is required":
+                        break;
+                    case "Epic sadface: Username and password do not match any user in this service":
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException("No Such Validation message is available");
+
+                }
+            }
+        }
     }
-    
+
+    public class UserCrendentials
+    {
+       public string? Username{get; set;}
+       public string? Password{get; set;}
+    }
 }

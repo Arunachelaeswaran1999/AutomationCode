@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "RFyLxDgfMHlPT18e5BX1kpOU091dMEwsnL4R7QlhNauVjtpRAnX+lUUyrhzpYnMQI3hKVRnWV/Nifbk5vuCknw==",
+  "dgSpecHash": "OWqq0332y3Odf8HB2PqEl7SXPK5pUp/t4MxeMtMwmJoXICYBDbeynz6hi4u8JU7UCie4cVnVd/OOwBWsoY+WUA==",
   "success": true,
   "projectFilePath": "D:\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Arunachalam\\.nuget\\packages\\anglesharp\\1.0.4\\anglesharp.1.0.4.nupkg.sha512",
     "C:\\Users\\Arunachalam\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\Arunachalam\\.nuget\\packages\\dotnetseleniumextras.waithelpers\\3.11.0\\dotnetseleniumextras.waithelpers.3.11.0.nupkg.sha512",
     "C:\\Users\\Arunachalam\\.nuget\\packages\\microsoft.codecoverage\\17.6.0\\microsoft.codecoverage.17.6.0.nupkg.sha512",
     "C:\\Users\\Arunachalam\\.nuget\\packages\\microsoft.net.test.sdk\\17.6.0\\microsoft.net.test.sdk.17.6.0.nupkg.sha512",
     "C:\\Users\\Arunachalam\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
