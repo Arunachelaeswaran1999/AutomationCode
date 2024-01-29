@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj": {}
+    "D:\\Testing Interview Prepartions\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj": {}
   },
   "projects": {
-    "D:\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj": {
+    "D:\\Testing Interview Prepartions\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj",
+        "projectUniqueName": "D:\\Testing Interview Prepartions\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj",
         "projectName": "Automation - SwagLabs",
-        "projectPath": "D:\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj",
+        "projectPath": "D:\\Testing Interview Prepartions\\AutomationCode\\SwagLabs\\Automation - SwagLabs.csproj",
         "packagesPath": "C:\\Users\\Arunachalam\\.nuget\\packages\\",
-        "outputPath": "D:\\AutomationCode\\SwagLabs\\obj\\",
+        "outputPath": "D:\\Testing Interview Prepartions\\AutomationCode\\SwagLabs\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Arunachalam\\AppData\\Roaming\\NuGet\\NuGet.Config",
